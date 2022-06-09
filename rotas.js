@@ -5,8 +5,8 @@ const livros = require('./controllers/livros')
 
 rotas.get('/autores', autores.listarAutores);
 rotas.get('/autores/:id', autores.obterAutor);
-rotas.post('/autores');
-rotas.put('/autores/:id');
+rotas.post('/autores', autores.cadastrarAutor);
+rotas.put('/autores/:id', autores.atualizarAutor);
 rotas.delete('autores/:id');
 
 rotas.get('/livros');
