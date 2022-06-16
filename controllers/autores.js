@@ -1,4 +1,6 @@
 const conexao = require('../db/conexao')
+const jwt = require('jsonwebtoken');
+const jwtSecret = require('../jwt_secret');
 
 const listarAutores = async( req, res) =>{
     try{
@@ -24,10 +26,20 @@ const obterAutor = async (req, res) => {
 }
 
 const cadastrarAutor = async (req, res) => {
-    const { nome, idade} = req.body;
+    const { nome, idade, token} = req.body;
 
     if(!nome){
         res.status(400).json("O campo nome é obrigatório.");
+    }
+
+    if(!token){
+        res.status(400).json("O campo token é obrigatório.");
+    }
+
+    try{
+        const usuario = jwt.verify(token, jwtSecret)
+    }catch{
+        return res.status.json("O token fornecido é inválido!")
     }
 
     try{
