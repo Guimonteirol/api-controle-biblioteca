@@ -7,7 +7,7 @@ rotas.get('/autores', autores.listarAutores);
 rotas.get('/autores/:id', autores.obterAutor);
 rotas.post('/autores', autores.cadastrarAutor);
 rotas.put('/autores/:id', autores.atualizarAutor);
-rotas.delete('autores/:id');
+rotas.delete('autores/:id', autores.excluirAutor);
 
 rotas.get('/livros');
 rotas.get('/livros/:id');
